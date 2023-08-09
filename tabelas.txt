@@ -1,0 +1,55 @@
+Cliente.
+ 
+CO001 = Dados cliente
+CO002 = Dados da Dívida
+CO003 = Dados da Parcelas do contrato
+CO004= Dados do bem
+CO030= Acionamentos/Históricos
+CO090 = Telefones vinculados ao contrato do cliente
+CO092= Endereços físicos do contrato do Cliente
+CO125= E-mail pertencente ao contrato do cliente.
+C0146= Código de tabulação discador.
+
+Empresas
+
+AD001 - Grupo de empresa
+AD002 - Detalhes das empresas  
+Acordos
+ 
+CO131 = Dados do Acordo
+CO132 = Parcelas do Contrato
+CO268 = Parcelas do Acordo
+CO269 = Contratos que compõem o acordo.
+FI011 = Boletos
+CO270 = Logs de geração do acordo.
+EB008 = lotes do mensageria.
+CO029 = Tabela de eventos CRM.
+EM003 = Envio de e-mails.
+MS003 = Envio de SMS.
+VW_CARTEIRACOBRANCA = Visualizar os contratos em cobrança no dia.
+ 
+Robôs
+ 
+INS014 = Filas e consultas dos robôs.
+INS015 = Para consulta das macros
+INS016 = Logs de telas dos robôs.
+INS017 = Usuários que estão utilizando os robôs.
+SG073 = Verificar usuários de aplicação do Santander do usuário.
+SG054 = Informações sobre as aplicações
+SG053 = Informações sobre as máquinas.
+
+Operador 
+
+SG001 - O cadastro de todos os funcionarios (operador, supervisor, gerente e etc. 
+DL035 = Consultar se o operador está ativo no monitoramento atraves do TIPEVENTO = 0 é que ele está disponível
+DL036 = Lista de TIPEVENTO
+DL108 = Lista de TIPEVENTO completa.
+SG045 = Log de acessos aos aplicativos
+DL032 = Consultar as pausas do operador.
+DL036 = Consultar os status do monitoramento 
+DL108 = Consultar o codigo das pausas.
+DL124 = Portais
+CO085 - Para consultar o CODEQP da equipe 
+CO086 - Para consultar ou alterar a equipe do operador
+ 
+Em caso de Dúvida sobre as tabelas consulte a VW_DICIONARIO ou VW_DICIONARIO_ABREVIADO.

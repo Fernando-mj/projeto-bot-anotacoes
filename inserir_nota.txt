@@ -1,0 +1,8 @@
+Para inserir uma nova nota siga este fluxo.
+
+1. /nova_nota "antes de enviar o comando realize o passo 2"
+
+2. Ao inves de espaço utilize a underline " _ " como exemplo abaixo: 
+titulo_titulo
+
+"Insira sua nota logo após o titulo"
