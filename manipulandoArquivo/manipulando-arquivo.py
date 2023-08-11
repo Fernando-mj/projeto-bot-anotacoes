@@ -7,10 +7,10 @@ key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI
 supabase: Client = create_client(url, key)
 
 
-response = supabase.table('testeDB').select('*').eq('id',1).single().execute()
+response = supabase.table('testeDB').select('*').eq('id',17).single().execute()
 # response = list(response.data)[0]["menu_desc"]
 
-print(response)
+# print(response)
 
 CHAVE_API = "6295709361:AAFShC9euTMCza02JEcP5wemHXUpP0_gYmo"
 
@@ -19,11 +19,13 @@ bot = telebot.TeleBot(CHAVE_API)
 
 ##VARIAVEIS DE LEITURA DE ARQUIVO !!!
 
-menuzin = supabase.table('testeDB').select('description').eq('id',6).single().execute()
+menuzin = supabase.table('main_menu').select('desc_menu').eq('id',1).single().execute()
 
 print(menuzin)
 
-menu = menuzin.data["description"]
+menu = menuzin.data["desc_menu"]
+var_menu = menuzin.data["desc_menu"]
+
 # with open(".\menu.txt", "r", encoding="utf-8") as arquivo:
 #     menu = arquivo.read()
 with open("tabelas.txt", "r", encoding="utf-8") as arquivo:
@@ -33,7 +35,7 @@ with open("lentidao_calculo.txt", "r", encoding="utf-8") as arquivo:
     var_lentidao_calculo = arquivo.read()
 
 
-print(menu)
+# print(menu + " menu")
 
 """
 RECEBER COMANDOS DO TELEGRAM !!!
@@ -43,14 +45,24 @@ desc_nota = ""
 
 @bot.message_handler(commands=["nova_nota"])
 def nova_nota(mensagem):
-    titulo1 = mensagem.text
+    var_titulo = mensagem.text
+
+    var_titulo = var_titulo.split()
+    titulo = var_titulo[1]
+    # print(titulo)
+
+    print(titulo)
 
     desc_nota = mensagem.text
     desc_nota = desc_nota.replace("/nova_nota","")
-    print(desc_nota)
+    # print(desc_nota + " desc nota")
 
 
+    supabase.table('main_menu').update({'desc_menu':var_menu + '\n' + titulo}).eq('id',1).execute()
+
+    supabase.table('testeDB').insert({'title':titulo}).execute()
     supabase.table('testeDB').insert({"description":desc_nota}).execute()
+
 
     # with open("controle_nota.txt", "w", encoding="utf-8") as arquivo:
     #     arquivo.write(titulo1)
@@ -79,7 +91,7 @@ def nova_nota(mensagem):
 
 @bot.message_handler(commands=["inserir_nota"])
 def nova_nota(mensagem):
-    bot.reply_to(mensagem, var_inserir_nota)
+    bot.reply_to(mensagem, 'instruções para inserção de nota')
     pass
 
 @bot.message_handler(commands=["tabelas"])
